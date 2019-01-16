@@ -1,0 +1,28 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Entry {
+  public static Object Run() {
+
+    final Number a = 1L;
+    final Number b = 2L;
+    final Boolean c = true;
+    if (c) {
+      return a.longValue() + b.longValue();
+
+    } else {
+      return a.longValue() - b.longValue();
+    }
+  }
+
+  public Entry() {}
+
+  public String toString() {
+
+    return "Entry{}";
+  }
+}
+
+##########

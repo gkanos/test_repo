@@ -1,0 +1,57 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Entry {
+  public static Object Run() {
+
+    return new B().op();
+  }
+
+  public Entry() {}
+
+  public String toString() {
+
+    return "Entry{}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class A {
+  protected Number x = 2L;
+
+  public A() {}
+
+  public String toString() {
+
+    return "A{" + "x := " + Utils.toString(x) + "}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class B extends A {
+  public Number op() {
+
+    return x;
+  }
+
+  public B() {}
+
+  public String toString() {
+
+    return "B{}";
+  }
+}
+
+##########

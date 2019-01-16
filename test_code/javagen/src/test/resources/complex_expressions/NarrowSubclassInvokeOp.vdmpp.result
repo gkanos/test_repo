@@ -1,0 +1,50 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class B implements A {
+  public Number op() {
+
+    return 1L;
+  }
+
+  public B() {}
+
+  public String toString() {
+
+    return "B{}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Entry {
+  public static Object Run() {
+
+    final A a = new B();
+    return ((B) a).op();
+  }
+
+  public Entry() {}
+
+  public String toString() {
+
+    return "Entry{}";
+  }
+}
+
+##########
+
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public interface A {}
+
+##########

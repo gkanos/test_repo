@@ -1,0 +1,75 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class A {
+  public A() {}
+
+  public static Number fun() {
+
+    return 2L;
+  }
+
+  public String toString() {
+
+    return "A{}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Entry {
+  public static Number Run() {
+
+    final VDMSeq xs = SeqUtil.seq(new A(), new A());
+    {
+      Number sum = 0L;
+      for (Iterator iterator_1 = xs.iterator(); iterator_1.hasNext(); ) {
+        Object x = (Object) iterator_1.next();
+        Number apply_1 = null;
+        if (x instanceof A) {
+          apply_1 = ((A) x).fun();
+        } else {
+          throw new RuntimeException("Missing member: fun");
+        }
+
+        sum = sum.longValue() + apply_1.longValue();
+      }
+      return sum;
+    }
+  }
+
+  public Entry() {}
+
+  public String toString() {
+
+    return "Entry{}";
+  }
+}
+
+##########
+
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public interface Func_1<T_1> {
+  public abstract T_1 eval();
+}
+
+##########
+
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public interface B {}
+
+##########

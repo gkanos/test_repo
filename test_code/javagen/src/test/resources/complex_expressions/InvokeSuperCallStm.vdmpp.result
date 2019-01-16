@@ -1,0 +1,81 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class A {
+  public Number increment() {
+
+    return 1L;
+  }
+
+  public A() {}
+
+  public String toString() {
+
+    return "A{}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class B extends A {
+  public Number harvest() {
+
+    return super.increment();
+  }
+
+  public B() {}
+
+  public String toString() {
+
+    return "B{}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class C extends B {
+  public Number increment() {
+
+    return 2L;
+  }
+
+  public C() {}
+
+  public String toString() {
+
+    return "C{}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Entry {
+  public static Object Run() {
+
+    final B b = new C();
+    return b.harvest();
+  }
+
+  public Entry() {}
+
+  public String toString() {
+
+    return "Entry{}";
+  }
+}
+
+##########

@@ -1,0 +1,61 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Storage {
+  public VDMMap getXs() {
+
+    return MapUtil.map(new Maplet(1L, new X()));
+  }
+
+  public Storage() {}
+
+  public String toString() {
+
+    return "Storage{}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class X {
+  public X() {}
+
+  public static Number fun() {
+
+    return 42L;
+  }
+
+  public String toString() {
+
+    return "X{}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Entry {
+  public static Object Run() {
+
+    final Storage s = new Storage();
+    return ((X) Utils.get(s.getXs(), 1L)).fun();
+  }
+
+  public Entry() {}
+
+  public String toString() {
+
+    return "Entry{}";
+  }
+}
+
+##########

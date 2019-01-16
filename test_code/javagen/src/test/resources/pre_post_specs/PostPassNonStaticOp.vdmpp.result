@@ -1,0 +1,27 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Entry {
+  public Number op(final Number x) {
+
+    return x;
+  }
+
+  public static Object Run() {
+
+    final Entry e = new Entry();
+    final Number r = e.op(42L);
+    return r;
+  }
+
+  public Entry() {}
+
+  public String toString() {
+
+    return "Entry{}";
+  }
+}
+
+##########

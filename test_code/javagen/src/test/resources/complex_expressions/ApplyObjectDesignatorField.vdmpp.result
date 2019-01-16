@@ -1,0 +1,61 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class A {
+  public Number op1(final A a) {
+
+    return a.getMe().f();
+  }
+
+  public Number op2(final A a) {
+
+    return a.getMe().getMe().f();
+  }
+
+  public Number op3(final A a) {
+
+    return a.getMe().getMe().getMe().f();
+  }
+
+  public A getMe() {
+
+    return this;
+  }
+
+  public A() {}
+
+  public static Number f() {
+
+    return 1L;
+  }
+
+  public String toString() {
+
+    return "A{}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Entry {
+  public static Object Run() {
+
+    final A a = new A();
+    return a.op1(a).longValue() + a.op2(a).longValue() + a.op3(a).longValue();
+  }
+
+  public Entry() {}
+
+  public String toString() {
+
+    return "Entry{}";
+  }
+}
+
+##########

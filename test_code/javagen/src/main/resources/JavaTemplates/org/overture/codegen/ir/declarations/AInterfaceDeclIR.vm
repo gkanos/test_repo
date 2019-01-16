@@ -1,0 +1,27 @@
+#set( $package = "")
+#set( $packageName = $node.getPackage())
+#if (!$JavaFormat.isNull($packageName))
+	#set( $package = "package ${packageName};")
+#end
+##
+#set( $templateTypes = "")
+#if ($node.getTemplateTypes().size() > 0)
+	#set( $templateTypes = $JavaFormat.formatTemplateTypes($node.getTemplateTypes()))
+#end
+##
+$package
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public interface $node.getName() $templateTypes $JavaFormat.formatInterfaces($node)
+{
+#foreach( $field in $node.getFields() )
+$JavaFormat.format($field)
+#end
+##
+#foreach( $methodSig in $node.getMethodSignatures() )
+$JavaFormat.format($methodSig)
+#end
+}

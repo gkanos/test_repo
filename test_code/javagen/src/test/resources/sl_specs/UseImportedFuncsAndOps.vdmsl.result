@@ -1,0 +1,45 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+final public class Entry {
+  private Entry() {}
+
+  public static Object Run() {
+
+    return Func.op().longValue() + Func.id(8L).longValue();
+  }
+
+  public String toString() {
+
+    return "Entry{}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+final public class Func {
+  private Func() {}
+
+  public static Number op() {
+
+    return 1L;
+  }
+
+  public static Number id(final Number x) {
+
+    return x;
+  }
+
+  public String toString() {
+
+    return "Func{}";
+  }
+}
+
+##########

@@ -1,0 +1,22 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Entry {
+  private static final VDMSet s = SetUtil.set();
+
+  public static Boolean Run() {
+
+    return false;
+  }
+
+  public Entry() {}
+
+  public String toString() {
+
+    return "Entry{" + "s = " + Utils.toString(s) + "}";
+  }
+}
+
+##########

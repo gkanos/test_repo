@@ -1,0 +1,61 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class A {
+  public String xs = "h";
+
+  public A() {}
+
+  public String toString() {
+
+    return "A{" + "xs := " + Utils.toString(xs) + "}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Entry {
+  public static Object Run() {
+
+    final VDMSeq xs = SeqUtil.seq(new A(), new A());
+    {
+      String str = "";
+      for (Iterator iterator_1 = xs.iterator(); iterator_1.hasNext(); ) {
+        Object x = (Object) iterator_1.next();
+        Character apply_1 = null;
+        if (x instanceof A) {
+          apply_1 = ((A) x).xs.charAt(Utils.index(1L));
+        } else {
+          throw new RuntimeException("Missing member: xs");
+        }
+
+        str = str + new String(new char[] {apply_1});
+      }
+      return str;
+    }
+  }
+
+  public Entry() {}
+
+  public String toString() {
+
+    return "Entry{}";
+  }
+}
+
+##########
+
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public interface B {}
+
+##########

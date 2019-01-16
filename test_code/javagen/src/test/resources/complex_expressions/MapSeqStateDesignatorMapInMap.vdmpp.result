@@ -1,0 +1,34 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Entry {
+  public static Object Run() {
+
+    VDMMap xs =
+        MapUtil.map(
+            new Maplet(MapUtil.map(new Maplet(1L, 2L)), MapUtil.map(new Maplet('a', 'b'))),
+            new Maplet(MapUtil.map(new Maplet(3L, 4L)), MapUtil.map(new Maplet('c', 'd'))));
+    Utils.mapSeqUpdate(((VDMMap) Utils.get(xs, MapUtil.map(new Maplet(3L, 4L)))), 'c', 'x');
+    if (Utils.equals(
+        ((Character) Utils.get(((VDMMap) Utils.get(xs, MapUtil.map(new Maplet(3L, 4L)))), 'c')),
+        'x')) {
+      return ((Character)
+          Utils.get(((VDMMap) Utils.get(xs, MapUtil.map(new Maplet(1L, 2L)))), 'a'));
+
+    } else {
+      return ((Character)
+          Utils.get(((VDMMap) Utils.get(xs, MapUtil.map(new Maplet(3L, 4L)))), 'c'));
+    }
+  }
+
+  public Entry() {}
+
+  public String toString() {
+
+    return "Entry{}";
+  }
+}
+
+##########

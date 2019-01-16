@@ -1,0 +1,77 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class A {
+  public Number op() {
+
+    return 1L;
+  }
+
+  public A() {}
+
+  public String toString() {
+
+    return "A{}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class B {
+  public Number op() {
+
+    return 11L;
+  }
+
+  public B() {}
+
+  public String toString() {
+
+    return "B{}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Entry {
+  public static Number Run() {
+
+    final VDMSeq xs = SeqUtil.seq(new A(), new B());
+    {
+      Number sum = 0L;
+      for (Iterator iterator_1 = SeqUtil.elems(Utils.copy(xs)).iterator(); iterator_1.hasNext(); ) {
+        Object x = (Object) iterator_1.next();
+        Number apply_1 = null;
+        if (x instanceof A) {
+          apply_1 = ((A) x).op();
+        } else if (x instanceof B) {
+          apply_1 = ((B) x).op();
+        } else {
+          throw new RuntimeException("Missing member: op");
+        }
+
+        sum = sum.doubleValue() + apply_1.longValue();
+      }
+      return sum;
+    }
+  }
+
+  public Entry() {}
+
+  public String toString() {
+
+    return "Entry{}";
+  }
+}
+
+##########

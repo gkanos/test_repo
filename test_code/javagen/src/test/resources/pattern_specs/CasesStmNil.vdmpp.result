@@ -1,0 +1,33 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Entry {
+  public static Boolean casesNil(final Entry e) {
+
+    Entry nullPattern_1 = e;
+    Boolean success_1 = Utils.equals(nullPattern_1, null);
+
+    if (success_1) {
+      return true;
+
+    } else {
+      return false;
+    }
+  }
+
+  public static Object Run() {
+
+    return SeqUtil.seq(casesNil(new Entry()), casesNil(null));
+  }
+
+  public Entry() {}
+
+  public String toString() {
+
+    return "Entry{}";
+  }
+}
+
+##########

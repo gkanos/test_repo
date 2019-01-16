@@ -1,0 +1,22 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class A {
+  private Tuple x = op();
+
+  public Tuple op() {
+
+    return Tuple.mk_(2L, 3L);
+  }
+
+  public A() {}
+
+  public String toString() {
+
+    return "A{" + "x := " + Utils.toString(x) + "}";
+  }
+}
+
+##########

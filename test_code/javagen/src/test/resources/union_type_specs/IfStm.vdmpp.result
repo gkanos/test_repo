@@ -1,0 +1,33 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Entry {
+  private static final Object x = true;
+
+  public static Object Run() {
+
+    if (!(((Boolean) Entry.x))) {
+      return 1L;
+
+    } else if (((Boolean) Entry.x)) {
+      return 2L;
+
+    } else if (((Boolean) Entry.x)) {
+      return 3L;
+
+    } else {
+      return 4L;
+    }
+  }
+
+  public Entry() {}
+
+  public String toString() {
+
+    return "Entry{" + "x = " + Utils.toString(x) + "}";
+  }
+}
+
+##########

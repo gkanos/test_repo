@@ -1,0 +1,25 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class A {
+  public static Number getM(final Object arg) {
+
+    throw new UnsupportedOperationException();
+  }
+
+  public A() {}
+
+  public static Number getN(final Object arg) {
+
+    throw new UnsupportedOperationException();
+  }
+
+  public String toString() {
+
+    return "A{}";
+  }
+}
+
+##########

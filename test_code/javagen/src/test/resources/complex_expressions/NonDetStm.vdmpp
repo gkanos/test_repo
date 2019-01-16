@@ -1,0 +1,9 @@
+class Entry
+
+operations
+
+public static Run : () ==> ?
+Run () ==
+  || (return true, return true);
+
+end Entry

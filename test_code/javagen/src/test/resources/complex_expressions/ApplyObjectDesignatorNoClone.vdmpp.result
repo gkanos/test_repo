@@ -1,0 +1,47 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class A {
+  public Number n = 60L;
+
+  public A op(final A pa) {
+
+    return pa.op1(n).op1(4L);
+  }
+
+  public A op1(final Number pa) {
+
+    return this;
+  }
+
+  public A() {}
+
+  public String toString() {
+
+    return "A{" + "n := " + Utils.toString(n) + "}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Entry {
+  public static Object Run() {
+
+    return new A().op(new A()).n;
+  }
+
+  public Entry() {}
+
+  public String toString() {
+
+    return "Entry{}";
+  }
+}
+
+##########

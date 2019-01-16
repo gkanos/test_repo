@@ -1,0 +1,32 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Entry {
+  private Number x = 5L;
+
+  public static Object Run() {
+
+    return new Entry().op();
+  }
+
+  public Number op() {
+
+    return getX(this);
+  }
+
+  public Number getX(final Entry e) {
+
+    return e.x;
+  }
+
+  public Entry() {}
+
+  public String toString() {
+
+    return "Entry{" + "x := " + Utils.toString(x) + "}";
+  }
+}
+
+##########

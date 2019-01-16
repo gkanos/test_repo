@@ -1,0 +1,43 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Entry {
+  public static Object Run() {
+
+    final A_X_ a = new A_X_();
+    return a.q_X_.longValue() + a.op().longValue();
+  }
+
+  public Entry() {}
+
+  public String toString() {
+
+    return "Entry{}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class A_X_ {
+  public static final Number q_X_ = 42L;
+
+  public Number op() {
+
+    return A_X_.q_X_;
+  }
+
+  public A_X_() {}
+
+  public String toString() {
+
+    return "A_X_{" + "q_X_ = " + Utils.toString(q_X_) + "}";
+  }
+}
+
+##########

@@ -1,0 +1,28 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Entry {
+  public static Object Run() {
+
+    /* skip */
+    {
+      Number a = 1L;
+      /* skip */
+      {
+        /* skip */
+        return 2L;
+      }
+    }
+  }
+
+  public Entry() {}
+
+  public String toString() {
+
+    return "Entry{}";
+  }
+}
+
+##########

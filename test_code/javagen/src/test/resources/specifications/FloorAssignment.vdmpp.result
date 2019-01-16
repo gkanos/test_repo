@@ -1,0 +1,11 @@
+
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public interface A {
+  public static final Number x = Math.round(Utils.floor(-1.5)) - 3L;
+}
+
+##########

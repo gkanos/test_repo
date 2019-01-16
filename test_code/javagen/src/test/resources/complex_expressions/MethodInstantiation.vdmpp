@@ -1,0 +1,30 @@
+class A
+
+functions
+
+public f1: () -> nat
+f1() == g[nat,real](1,2);
+
+public g[@T, @U]:@T * @U -> @T
+g(arg1, -) ==
+	arg1;
+	
+operations
+
+public go :  () ==> nat
+go () == return f1() + f2().f1() + new A().f1() + g[nat,char](1,'a');	
+
+public f2: () ==> A
+f2() == return g[A,real](new A(),2);
+	
+end A
+
+class Entry
+
+operations
+
+public static Run : () ==> ?
+Run () ==
+	return new A().go();
+
+end Entry

@@ -1,0 +1,181 @@
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class HourlyPaidEmployee implements Employee {
+  public Number hours;
+  private Number rate;
+
+  public void cg_init_HourlyPaidEmployee_1(final Number pHours, final Number pRate) {
+
+    hours = pHours;
+    rate = pRate;
+  }
+
+  public HourlyPaidEmployee(final Number pHours, final Number pRate) {
+
+    cg_init_HourlyPaidEmployee_1(pHours, pRate);
+  }
+
+  public Number getSalary() {
+
+    return hours.doubleValue() * rate.doubleValue();
+  }
+
+  public void SetRate(final Number pRate) {
+
+    if (pRate.doubleValue() > 150L) {
+      rate = 150L;
+    } else if (pRate.doubleValue() < 0L) {
+      rate = 0L;
+    } else {
+      rate = pRate;
+    }
+  }
+
+  public HourlyPaidEmployee() {}
+
+  public String toString() {
+
+    return "HourlyPaidEmployee{"
+        + "hours := "
+        + Utils.toString(hours)
+        + ", rate := "
+        + Utils.toString(rate)
+        + "}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class FixedSalaryEmployee implements Employee {
+  private Number fixedSalary;
+
+  public void cg_init_FixedSalaryEmployee_1(final Number pFixedSalary) {
+
+    fixedSalary = pFixedSalary;
+  }
+
+  public FixedSalaryEmployee(final Number pFixedSalary) {
+
+    cg_init_FixedSalaryEmployee_1(pFixedSalary);
+  }
+
+  public Number getSalary() {
+
+    return fixedSalary;
+  }
+
+  public FixedSalaryEmployee() {}
+
+  public String toString() {
+
+    return "FixedSalaryEmployee{" + "fixedSalary := " + Utils.toString(fixedSalary) + "}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class Company {
+  private VDMSeq employees;
+
+  public void cg_init_Company_1() {
+
+    employees = SeqUtil.seq();
+  }
+
+  public Company() {
+
+    cg_init_Company_1();
+  }
+
+  public void op1() {
+
+    final Number x = employees.size();
+    final VDMSeq y = Utils.copy(employees);
+    final Employee q = ((Employee) employees.get(0));
+    /* skip */
+
+  }
+
+  public Number calculateSalary() {
+
+    return start_calc(0L, Utils.copy(employees));
+  }
+
+  private Number start_calc(final Number sum, final VDMSeq emps) {
+
+    if (Utils.equals(emps.size(), 0L)) {
+      return sum;
+
+    } else {
+      return start_calc(
+          sum.doubleValue() + ((Employee) emps.get(0)).getSalary().doubleValue(),
+          SeqUtil.tail(Utils.copy(emps)));
+    }
+  }
+
+  private Number not_used(
+      final Number r, final Number n1, final Number n, final Character c, final Boolean b) {
+
+    return 2.1;
+  }
+
+  public Company addEmp(final Employee emp) {
+
+    employees = SeqUtil.conc(Utils.copy(employees), SeqUtil.seq(emp));
+    return this;
+  }
+
+  public String toString() {
+
+    return "Company{" + "employees := " + Utils.toString(employees) + "}";
+  }
+}
+
+##########
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public class World {
+  public Number run() {
+
+    final HourlyPaidEmployee emp1 = new HourlyPaidEmployee(120.0, 100L);
+    final FixedSalaryEmployee emp2 = new FixedSalaryEmployee(10000L);
+    final FixedSalaryEmployee emp3 = new FixedSalaryEmployee(5000L);
+    final HourlyPaidEmployee emp4 = new HourlyPaidEmployee(100.0, 100L);
+    final Company company = new Company().addEmp(emp1).addEmp(emp2).addEmp(emp3).addEmp(emp4);
+    return company.calculateSalary();
+  }
+
+  public World() {}
+
+  public String toString() {
+
+    return "World{}";
+  }
+}
+
+##########
+
+
+import java.util.*;
+import org.overture.codegen.runtime.*;
+
+@SuppressWarnings("all")
+public interface Employee {
+  public abstract Number getSalary();
+}
+
+##########
